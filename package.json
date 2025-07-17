@@ -1,0 +1,79 @@
+{
+  "name": "nexus-ai-code-assist",
+  "displayName": "Nexus AI Code Assist",
+  "description": "Context-aware AI code assistant powered by Gemini",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "nexus-ai-code-assist.openChat",
+        "title": "Open AI Code Assist",
+        "category": "Nexus AI"
+      },
+      {
+        "command": "nexus-ai-code-assist.analyzeFile",
+        "title": "Analyze Current File",
+        "category": "Nexus AI"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nexus-ai-code",
+          "title": "Nexus AI Code",
+          "icon": "$(code)"
+        }
+      ]
+    },
+    "views": {
+      "nexus-ai-code": [
+        {
+          "id": "nexusAiCodeAssist",
+          "name": "AI Code Assist",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Nexus AI Code Assist",
+      "properties": {
+        "nexusAiCodeAssist.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Gemini API key"
+        },
+        "nexusAiCodeAssist.model": {
+          "type": "string",
+          "default": "gemini-pro",
+          "description": "Gemini model to use",
+          "enum": [
+            "gemini-pro",
+            "gemini-pro-latest"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/node-fetch": "^2.6.12",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
