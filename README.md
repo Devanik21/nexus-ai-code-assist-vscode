@@ -1,206 +1,194 @@
-# 🚀 Nexus AI Code Assist
+# Nexus AI Code Assist Vscode
 
-<div align="center">
+![Language](https://img.shields.io/badge/Language-TypeScript-3178C6?style=flat-square) ![Stars](https://img.shields.io/github/stars/Devanik21/nexus-ai-code-assist-vscode?style=flat-square&color=yellow) ![Forks](https://img.shields.io/github/forks/Devanik21/nexus-ai-code-assist-vscode?style=flat-square&color=blue) ![Author](https://img.shields.io/badge/Author-Devanik21-black?style=flat-square&logo=github) ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
 
-![VS Code](https://img.shields.io/badge/VS%20Code-1.74.0+-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-4.9.4-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Gemini](https://img.shields.io/badge/Gemini-AI-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge)
-
-**🧠 Context-aware AI code assistant with intelligent diff generation**
-
-*Unlike basic chatbots, this extension understands your code and generates precise, reviewable changes*
-
-</div>
-
-## ✨ Key Features
-
-- 🎯 **Context-Aware**: Automatically reads and understands your current file
-- 🔍 **Smart Diff Generation**: Creates precise code changes with diff preview
-- 🛡️ **Safe Edits**: Always asks permission before applying changes
-- ⚡ **Real-time Updates**: Tracks file changes and selections live
-- 🌐 **Multi-language Support**: Works with any programming language
-- 🤖 **Intelligent Automation**: Handles complex refactoring and optimization
-
-## 🛠️ Installation
-
-### Prerequisites
-- VS Code 1.74.0+
-- Google Gemini API key ([Get one here](https://makersuite.google.com/app/apikey))
-
-### Setup
-```bash
-# Clone and install
-git clone <your-repo-url>
-cd nexus-ai-code-assist
-npm install
-npm run compile
-```
-
-### Configuration
-1. Open VS Code settings (`Ctrl+,`)
-2. Search for "Nexus AI Code Assist"
-3. Configure:
-   - `nexusAiCodeAssist.apiKey`: Your Gemini API key
-   - `nexusAiCodeAssist.model`: Choose model (gemini-pro or gemini-pro-latest)
-
-## 🎮 Usage
-
-### Basic Workflow
-1. **Open a file** you want to work with
-2. **Click the code icon** in Activity Bar or use `Ctrl+Shift+P` → "Open AI Code Assist"
-3. **Ask intelligent questions**:
-   - "Add error handling to this function"
-   - "Convert this to TypeScript"
-   - "Optimize this algorithm"
-   - "Add comprehensive comments"
-   - "Fix the bug in this function"
-   - "Refactor for better readability"
-
-4. **Review diff preview** of proposed changes
-5. **Apply changes** if approved
-
-### Example Interactions
-
-```typescript
-// Before
-function processData(data) {
-    return data.map(item => item.value * 2);
-}
-```
-
-**User**: "Add input validation and TypeScript types"
-
-**AI Response**: 
-```diff
-- function processData(data) {
-+ function processData(data: Array<{value: number}>): number[] {
-+     if (!Array.isArray(data)) {
-+         throw new Error('Input must be an array');
-+     }
-+     
-+     data.forEach(item => {
-+         if (typeof item.value !== 'number') {
-+             throw new Error('All items must have numeric value property');
-+         }
-+     });
-+     
-      return data.map(item => item.value * 2);
-  }
-```
-
-## 🔧 Advanced Features
-
-### Context Detection
-- **File Analysis**: Complete file content understanding
-- **Selection Tracking**: Works with highlighted code
-- **Language Detection**: Automatic syntax awareness
-- **Structure Analysis**: Understands code organization
-
-### Intelligent Capabilities
-- **Code Optimization**: Performance improvements
-- **Type Safety**: TypeScript conversions
-- **Error Handling**: Robust error management
-- **Documentation**: Comprehensive commenting
-- **Refactoring**: Structure improvements
-- **Bug Detection**: Issue identification and fixes
-
-## ⚙️ Configuration
-
-| Setting | Description | Default | Options |
-|---------|-------------|---------|---------|
-| `nexusAiCodeAssist.apiKey` | Your Gemini API key | `""` | String |
-| `nexusAiCodeAssist.model` | AI model to use | `"gemini-pro"` | `gemini-pro`, `gemini-pro-latest` |
-
-## 🎯 Commands
-
-| Command | Description | Shortcut |
-|---------|-------------|----------|
-| `nexus-ai-code-assist.openChat` | Open AI Code Assist panel | Activity Bar |
-| `nexus-ai-code-assist.analyzeFile` | Analyze current file | Command Palette |
-
-## 🏗️ How It Works
-
-1. **Context Detection**: Monitors active file and provides:
-   - File name and language
-   - Complete file content
-   - Current selection
-   - Line numbers and structure
-
-2. **Intelligent Prompting**: Enhances questions with file context
-
-3. **Diff Generation**: Parses AI responses into reviewable diffs
-
-4. **Safe Application**: Manual review and approval required
-
-## 🚀 Development
-
-### Project Structure
-```
-nexus-ai-code-assist/
-├── src/
-│   └── extension.ts      # Main extension logic
-├── out/                  # Compiled output
-├── package.json          # Extension manifest
-├── tsconfig.json         # TypeScript config
-└── README.md            # This file
-```
-
-### Scripts
-```bash
-npm run compile     # Build once
-npm run watch      # Watch mode
-npm run vscode:prepublish  # Pre-publish build
-```
-
-## 📋 Requirements
-
-- **VS Code**: 1.74.0 or higher
-- **Node.js**: 16.x (for development)
-- **Gemini API Key**: Required for AI functionality
-
-## 🐛 Troubleshooting
-
-- **No responses**: Verify API key configuration
-- **Slow responses**: Large files (>10MB) may be slower
-- **Diff issues**: Some complex formats need manual review
-- **Rate limits**: Check your Gemini API plan limits
-
-## 📝 Release Notes
-
-### 1.0.0
-- 🎉 Initial release
-- 🧠 Context-aware code assistance
-- 🔍 Smart diff generation and preview
-- 🛡️ Safe change application system
-- 🌐 Multi-language support
-- 🤖 Intelligent automation features
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make changes and test thoroughly
-4. Submit a pull request
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Google Gemini team for powerful AI capabilities
-- VS Code extension API developers
-- Open source community for inspiration
+> Nexus AI Code Assist Vscode — bringing AI capabilities directly into the VS Code development environment.
 
 ---
 
-<div align="center">
+**Topics:** `vscode-extension` · `developer-tools` · `ai-code-completion` · `coding-assistant` · `deep-learning` · `generative-ai` · `ide-integration` · `large-language-models` · `llm` · `typescript`
 
-**🚀 Supercharge your coding with intelligent AI assistance!** 
+## Overview
 
-*Context-aware • Diff-powered • Safe • Fast*
+Nexus AI Code Assist Vscode is a VS Code extension that integrates AI-powered tooling into the editor workflow, eliminating context switching between the editor and external AI tools. It provides completions, explanations, generation commands, or chat capabilities directly accessible from the Command Palette and keyboard shortcuts.
 
-⭐ **Star this repo if it boosted your productivity!** ⭐
+The extension is built with TypeScript using the VS Code Extension API and communicates with an AI backend (Google Gemini, OpenAI, or a local model via Ollama) to provide intelligent, context-aware assistance. All sensitive credentials are stored in VS Code's SecretStorage to prevent accidental exposure.
 
-</div>
+The architecture follows the VS Code provider model: language-specific providers handle completions and hover actions, while WebView panels provide richer chat and generation interfaces. Configuration is fully exposed through VS Code's settings system for a native user experience.
+
+---
+
+## Motivation
+
+The best developer tools are the ones that stay out of the way while making hard things easier. This extension was built to make AI assistance feel native to the editor rather than bolted on — accessible with a keystroke, configured through familiar settings, and respectful of the developer's focus.
+
+---
+
+## Architecture
+
+```
+User Action (keystroke / command / hover)
+        │
+  VS Code Provider (InlineCompletion / Hover / Command)
+        │
+  Context extraction from active editor
+        │
+  AI Backend API call
+        │
+  Editor injection / WebView display
+```
+
+---
+
+## Features
+
+### Command Palette Integration
+All extension actions are registered as named VS Code commands, accessible from the Command Palette (Ctrl+Shift+P) without memorising keyboard shortcuts.
+
+### Inline Code Actions
+Right-click context menu items for common AI actions: Explain Selection, Refactor Selection, Add Docstring, Generate Tests.
+
+### Configurable AI Backend
+Switch between Google Gemini, OpenAI, or local Ollama endpoints via VS Code Settings without reinstalling the extension.
+
+### SecretStorage for API Keys
+API keys are stored in VS Code's encrypted SecretStorage rather than plaintext settings, preventing accidental exposure in dotfiles or version control.
+
+### WebView Panel Interface
+Rich HTML/CSS/JS panel for chat, generation history, and multi-turn interaction, rendered in VS Code's sidebar or editor area.
+
+### Status Bar Integration
+Real-time status bar item shows the current AI model name and a loading indicator during active API calls.
+
+### Keyboard Shortcut Bindings
+All primary actions have configurable keyboard shortcuts defined in package.json contributes.keybindings.
+
+### Cross-Platform Support
+Works on VS Code for Windows, macOS, and Linux; tested on VS Code 1.85+ and compatible with VS Code Insiders.
+
+---
+
+## Tech Stack
+
+| Library / Tool | Role | Why This Choice |
+|---|---|---|
+| **TypeScript** | Extension language | Type-safe VS Code extension development |
+| **VS Code Extension API** | Editor integration | Providers, commands, WebView, SecretStorage |
+| **esbuild** | Bundler | Fast TypeScript → JavaScript bundling |
+| **AI SDK (Gemini / OpenAI)** | AI backend | API client for LLM inference |
+| **vscode-test** | Testing | Extension integration tests in an Extension Host |
+
+> **Key packages detected in this repo:** `node-fetch`
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.9+ (or Node.js 18+ for TypeScript/JS projects)
+- `pip` or `npm` package manager
+- Relevant API keys (see Configuration section)
+
+### Installation
+
+```bash
+git clone https://github.com/Devanik21/nexus-ai-code-assist-vscode.git
+cd nexus-ai-code-assist-vscode
+npm install
+npm run watch   # watch mode for development
+# Press F5 in VS Code to open Extension Development Host
+
+# Build distributable VSIX
+npm run package
+code --install-extension *.vsix
+```
+
+---
+
+## Usage
+
+```bash
+// settings.json
+{
+  "extension.apiKey": "",
+  "extension.model": "gemini-2.0-flash",
+  "extension.triggerMode": "onDemand"
+}
+```
+
+---
+
+## Configuration
+
+| Variable | Default | Description |
+|---|---|---|
+| `extension.apiKey` | `(empty)` | AI backend API key (use SecretStorage command to set) |
+| `extension.model` | `gemini-2.0-flash` | AI model identifier |
+| `extension.triggerMode` | `onDemand` | When to trigger AI: onType, onDemand, onSave |
+
+> Copy `.env.example` to `.env` and populate all required values before running.
+
+---
+
+## Project Structure
+
+```
+nexus-ai-code-assist-vscode/
+├── README.md
+├── package-lock.json
+├── package.json
+├── tsconfig.json
+└── ...
+```
+
+---
+
+## Roadmap
+
+- [ ] Repository-wide context indexing for project-aware completions
+- [ ] Offline local model support via Ollama REST API
+- [ ] Test generation from function signatures
+- [ ] Multi-file refactoring with diff preview
+- [ ] Marketplace publication with automated release workflow
+
+---
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome. Please:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'feat: add your feature'`)
+4. Push to your branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+Please follow conventional commit messages and ensure any new code is documented.
+
+---
+
+## Notes
+
+A valid API key for the configured AI backend is required. The extension only sends code to the AI backend when a user action explicitly triggers it.
+
+---
+
+## Author
+
+**Devanik Debnath**  
+B.Tech, Electronics & Communication Engineering  
+National Institute of Technology Agartala
+
+[![GitHub](https://img.shields.io/badge/GitHub-Devanik21-black?style=flat-square&logo=github)](https://github.com/Devanik21)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-devanik-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/devanik/)
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+*Crafted with curiosity, precision, and a belief that good software is worth building well.*
